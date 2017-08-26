@@ -9,5 +9,5 @@
 import UIKit
 
 struct Configuratons {
-    static var AppIdentifire = "impulse.MagicKeyboard"
+    static var AppIdentifire = "magickeyboard"
 }

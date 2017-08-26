@@ -13,4 +13,10 @@ struct Chat {
     var users:[User]
     var id:Int
     
+    init(title:String) {
+        self.title = title
+        self.users = []
+        self.id = 0
+    }
+    
 }

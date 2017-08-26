@@ -20,6 +20,7 @@
 		34EBE0D21F51C1CD000E5D2E /* ChatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0D11F51C1CD000E5D2E /* ChatsManager.swift */; };
 		34EBE0D41F51C3F2000E5D2E /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0D31F51C3F2000E5D2E /* Chat.swift */; };
 		34EBE0D61F51C421000E5D2E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0D51F51C421000E5D2E /* User.swift */; };
+		34EBE0DA1F51E856000E5D2E /* NearChatProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0D91F51E856000E5D2E /* NearChatProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		34EBE0D11F51C1CD000E5D2E /* ChatsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatsManager.swift; path = Classes/Managers/ChatsManager.swift; sourceTree = "<group>"; };
 		34EBE0D31F51C3F2000E5D2E /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		34EBE0D51F51C421000E5D2E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		34EBE0D91F51E856000E5D2E /* NearChatProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearChatProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		34EBE0B31F51AD60000E5D2E /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				34EBE0D91F51E856000E5D2E /* NearChatProvider.swift */,
 			);
 			name = Network;
 			path = Classes/Network;
@@ -255,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34EBE0DA1F51E856000E5D2E /* NearChatProvider.swift in Sources */,
 				34EBE0CD1F51B692000E5D2E /* Store.swift in Sources */,
 				34EBE0B91F51AD60000E5D2E /* AppDelegate.swift in Sources */,
 				34EBE0D21F51C1CD000E5D2E /* ChatsManager.swift in Sources */,

@@ -13,16 +13,17 @@ protocol ChatObservingProtocol {
     func chatProviderListUpdated(_ chatsProviders:[ChatProviderProtocol])
 }
 
+
+typealias Update = (_ status:Bool) -> Void
 protocol ChatProviderProtocol {
     var name:String { get }
     var chats:[Chat] { get }
-    func updated(_:(_ status:Bool) -> Void)
+    func request(_ updated:@escaping Update)
 }
 
 class ChatsManager {
     
-    private var chatProviders:[ChatProviderProtocol] = []
-    
+    private var chatProviders:[ChatProviderProtocol] = [NearChatProvider()]
     
     var delegate:ChatObservingProtocol? {
         didSet{
@@ -32,9 +33,10 @@ class ChatsManager {
     
     func requestChats() {
         chatProviders.forEach { (provider) in
-            provider.updated({ (success) in
+            provider.request({ [weak self] (success) in
                 if !success { return }
-                delegate?.chatProviderListUpdated(chatProviders)
+                guard let strongSelf = self else { return }
+                strongSelf.delegate?.chatProviderListUpdated(strongSelf.chatProviders)
             })
         }
     }

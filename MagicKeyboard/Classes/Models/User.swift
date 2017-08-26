@@ -11,4 +11,9 @@ import Foundation
 struct User{
     var id:Int
     var name:String
+    
+    init(name:String) {
+        self.id = 0
+        self.name = name
+    }
 }
