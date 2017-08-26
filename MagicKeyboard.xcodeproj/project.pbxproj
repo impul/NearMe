@@ -12,11 +12,14 @@
 		34EBE0C11F51AD75000E5D2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34EBE0BD1F51AD75000E5D2E /* Main.storyboard */; };
 		34EBE0C21F51AD75000E5D2E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34EBE0BF1F51AD75000E5D2E /* Info.plist */; };
 		34EBE0C41F51AD82000E5D2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34EBE0C31F51AD82000E5D2E /* Assets.xcassets */; };
-		34EBE0C61F51AEFF000E5D2E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0C51F51AEFF000E5D2E /* MainViewController.swift */; };
+		34EBE0C61F51AEFF000E5D2E /* ListChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0C51F51AEFF000E5D2E /* ListChatsViewController.swift */; };
 		34EBE0C81F51AFE7000E5D2E /* UIColor+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0C71F51AFE7000E5D2E /* UIColor+Random.swift */; };
 		34EBE0CB1F51B657000E5D2E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0CA1F51B657000E5D2E /* Configuration.swift */; };
 		34EBE0CD1F51B692000E5D2E /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0CC1F51B692000E5D2E /* Store.swift */; };
 		34EBE0CF1F51B9F1000E5D2E /* UIColor+Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0CE1F51B9F1000E5D2E /* UIColor+Store.swift */; };
+		34EBE0D21F51C1CD000E5D2E /* ChatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0D11F51C1CD000E5D2E /* ChatsManager.swift */; };
+		34EBE0D41F51C3F2000E5D2E /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0D31F51C3F2000E5D2E /* Chat.swift */; };
+		34EBE0D61F51C421000E5D2E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0D51F51C421000E5D2E /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,11 +29,14 @@
 		34EBE0BE1F51AD75000E5D2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		34EBE0BF1F51AD75000E5D2E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SupportingFiles/Info.plist; sourceTree = "<group>"; };
 		34EBE0C31F51AD82000E5D2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resourses/Assets.xcassets; sourceTree = "<group>"; };
-		34EBE0C51F51AEFF000E5D2E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		34EBE0C51F51AEFF000E5D2E /* ListChatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListChatsViewController.swift; sourceTree = "<group>"; };
 		34EBE0C71F51AFE7000E5D2E /* UIColor+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Random.swift"; sourceTree = "<group>"; };
 		34EBE0CA1F51B657000E5D2E /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = Classes/Constants/Configuration.swift; sourceTree = "<group>"; };
 		34EBE0CC1F51B692000E5D2E /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		34EBE0CE1F51B9F1000E5D2E /* UIColor+Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Store.swift"; sourceTree = "<group>"; };
+		34EBE0D11F51C1CD000E5D2E /* ChatsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatsManager.swift; path = Classes/Managers/ChatsManager.swift; sourceTree = "<group>"; };
+		34EBE0D31F51C3F2000E5D2E /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		34EBE0D51F51C421000E5D2E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,7 @@
 		34EBE0B01F51ACA0000E5D2E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				34EBE0D01F51C163000E5D2E /* Managers */,
 				34EBE0C91F51B62F000E5D2E /* Constants */,
 				34EBE0B31F51AD60000E5D2E /* Network */,
 				34EBE0B41F51AD60000E5D2E /* Models */,
@@ -112,6 +119,8 @@
 		34EBE0B41F51AD60000E5D2E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				34EBE0D31F51C3F2000E5D2E /* Chat.swift */,
+				34EBE0D51F51C421000E5D2E /* User.swift */,
 			);
 			name = Models;
 			path = Classes/Models;
@@ -138,7 +147,7 @@
 		34EBE0B71F51AD60000E5D2E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				34EBE0C51F51AEFF000E5D2E /* MainViewController.swift */,
+				34EBE0C51F51AEFF000E5D2E /* ListChatsViewController.swift */,
 			);
 			name = ViewControllers;
 			path = Classes/ViewControllers;
@@ -161,6 +170,14 @@
 				34EBE0CC1F51B692000E5D2E /* Store.swift */,
 			);
 			name = Constants;
+			sourceTree = "<group>";
+		};
+		34EBE0D01F51C163000E5D2E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				34EBE0D11F51C1CD000E5D2E /* ChatsManager.swift */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,9 +257,12 @@
 			files = (
 				34EBE0CD1F51B692000E5D2E /* Store.swift in Sources */,
 				34EBE0B91F51AD60000E5D2E /* AppDelegate.swift in Sources */,
+				34EBE0D21F51C1CD000E5D2E /* ChatsManager.swift in Sources */,
 				34EBE0C81F51AFE7000E5D2E /* UIColor+Random.swift in Sources */,
 				34EBE0CB1F51B657000E5D2E /* Configuration.swift in Sources */,
-				34EBE0C61F51AEFF000E5D2E /* MainViewController.swift in Sources */,
+				34EBE0D61F51C421000E5D2E /* User.swift in Sources */,
+				34EBE0D41F51C3F2000E5D2E /* Chat.swift in Sources */,
+				34EBE0C61F51AEFF000E5D2E /* ListChatsViewController.swift in Sources */,
 				34EBE0CF1F51B9F1000E5D2E /* UIColor+Store.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
