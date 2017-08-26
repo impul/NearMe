@@ -7,21 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34D12E2B1F51A9110067D8D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D12E2A1F51A9110067D8D5 /* AppDelegate.swift */; };
-		34D12E2D1F51A9110067D8D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D12E2C1F51A9110067D8D5 /* ViewController.swift */; };
-		34D12E301F51A9110067D8D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34D12E2E1F51A9110067D8D5 /* Main.storyboard */; };
-		34D12E321F51A9110067D8D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D12E311F51A9110067D8D5 /* Assets.xcassets */; };
-		34D12E351F51A9110067D8D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34D12E331F51A9110067D8D5 /* LaunchScreen.storyboard */; };
+		34EBE0B91F51AD60000E5D2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0B81F51AD60000E5D2E /* AppDelegate.swift */; };
+		34EBE0C01F51AD75000E5D2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34EBE0BB1F51AD75000E5D2E /* LaunchScreen.storyboard */; };
+		34EBE0C11F51AD75000E5D2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34EBE0BD1F51AD75000E5D2E /* Main.storyboard */; };
+		34EBE0C21F51AD75000E5D2E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34EBE0BF1F51AD75000E5D2E /* Info.plist */; };
+		34EBE0C41F51AD82000E5D2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34EBE0C31F51AD82000E5D2E /* Assets.xcassets */; };
+		34EBE0C61F51AEFF000E5D2E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0C51F51AEFF000E5D2E /* MainViewController.swift */; };
+		34EBE0C81F51AFE7000E5D2E /* UIColor+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0C71F51AFE7000E5D2E /* UIColor+Random.swift */; };
+		34EBE0CB1F51B657000E5D2E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0CA1F51B657000E5D2E /* Configuration.swift */; };
+		34EBE0CD1F51B692000E5D2E /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0CC1F51B692000E5D2E /* Store.swift */; };
+		34EBE0CF1F51B9F1000E5D2E /* UIColor+Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0CE1F51B9F1000E5D2E /* UIColor+Store.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		34D12E271F51A9110067D8D5 /* MagicKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		34D12E2A1F51A9110067D8D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		34D12E2C1F51A9110067D8D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		34D12E2F1F51A9110067D8D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		34D12E311F51A9110067D8D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		34D12E341F51A9110067D8D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		34D12E361F51A9110067D8D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34EBE0B81F51AD60000E5D2E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Classes/AppDelegate.swift; sourceTree = "<group>"; };
+		34EBE0BC1F51AD75000E5D2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		34EBE0BE1F51AD75000E5D2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		34EBE0BF1F51AD75000E5D2E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SupportingFiles/Info.plist; sourceTree = "<group>"; };
+		34EBE0C31F51AD82000E5D2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resourses/Assets.xcassets; sourceTree = "<group>"; };
+		34EBE0C51F51AEFF000E5D2E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		34EBE0C71F51AFE7000E5D2E /* UIColor+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Random.swift"; sourceTree = "<group>"; };
+		34EBE0CA1F51B657000E5D2E /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = Classes/Constants/Configuration.swift; sourceTree = "<group>"; };
+		34EBE0CC1F51B692000E5D2E /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		34EBE0CE1F51B9F1000E5D2E /* UIColor+Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Store.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +63,104 @@
 		34D12E291F51A9110067D8D5 /* MagicKeyboard */ = {
 			isa = PBXGroup;
 			children = (
-				34D12E2A1F51A9110067D8D5 /* AppDelegate.swift */,
-				34D12E2C1F51A9110067D8D5 /* ViewController.swift */,
-				34D12E2E1F51A9110067D8D5 /* Main.storyboard */,
-				34D12E311F51A9110067D8D5 /* Assets.xcassets */,
-				34D12E331F51A9110067D8D5 /* LaunchScreen.storyboard */,
-				34D12E361F51A9110067D8D5 /* Info.plist */,
+				34EBE0B21F51ACBF000E5D2E /* Resourses */,
+				34EBE0B11F51ACA9000E5D2E /* SupportingFiles */,
+				34EBE0B01F51ACA0000E5D2E /* Classes */,
 			);
 			path = MagicKeyboard;
+			sourceTree = "<group>";
+		};
+		34EBE0B01F51ACA0000E5D2E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				34EBE0C91F51B62F000E5D2E /* Constants */,
+				34EBE0B31F51AD60000E5D2E /* Network */,
+				34EBE0B41F51AD60000E5D2E /* Models */,
+				34EBE0B51F51AD60000E5D2E /* Extentions */,
+				34EBE0B61F51AD60000E5D2E /* Views */,
+				34EBE0B71F51AD60000E5D2E /* ViewControllers */,
+				34EBE0B81F51AD60000E5D2E /* AppDelegate.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		34EBE0B11F51ACA9000E5D2E /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				34EBE0BA1F51AD75000E5D2E /* Base.lproj */,
+				34EBE0BF1F51AD75000E5D2E /* Info.plist */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		34EBE0B21F51ACBF000E5D2E /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				34EBE0C31F51AD82000E5D2E /* Assets.xcassets */,
+			);
+			name = Resourses;
+			sourceTree = "<group>";
+		};
+		34EBE0B31F51AD60000E5D2E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Network;
+			path = Classes/Network;
+			sourceTree = "<group>";
+		};
+		34EBE0B41F51AD60000E5D2E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			path = Classes/Models;
+			sourceTree = "<group>";
+		};
+		34EBE0B51F51AD60000E5D2E /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				34EBE0C71F51AFE7000E5D2E /* UIColor+Random.swift */,
+				34EBE0CE1F51B9F1000E5D2E /* UIColor+Store.swift */,
+			);
+			name = Extentions;
+			path = Classes/Extentions;
+			sourceTree = "<group>";
+		};
+		34EBE0B61F51AD60000E5D2E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			path = Classes/Views;
+			sourceTree = "<group>";
+		};
+		34EBE0B71F51AD60000E5D2E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				34EBE0C51F51AEFF000E5D2E /* MainViewController.swift */,
+			);
+			name = ViewControllers;
+			path = Classes/ViewControllers;
+			sourceTree = "<group>";
+		};
+		34EBE0BA1F51AD75000E5D2E /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				34EBE0BB1F51AD75000E5D2E /* LaunchScreen.storyboard */,
+				34EBE0BD1F51AD75000E5D2E /* Main.storyboard */,
+			);
+			name = Base.lproj;
+			path = SupportingFiles/Base.lproj;
+			sourceTree = "<group>";
+		};
+		34EBE0C91F51B62F000E5D2E /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				34EBE0CA1F51B657000E5D2E /* Configuration.swift */,
+				34EBE0CC1F51B692000E5D2E /* Store.swift */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,6 +196,7 @@
 					34D12E261F51A9110067D8D5 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = X24R65DM8E;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -124,9 +224,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34D12E351F51A9110067D8D5 /* LaunchScreen.storyboard in Resources */,
-				34D12E321F51A9110067D8D5 /* Assets.xcassets in Resources */,
-				34D12E301F51A9110067D8D5 /* Main.storyboard in Resources */,
+				34EBE0C21F51AD75000E5D2E /* Info.plist in Resources */,
+				34EBE0C11F51AD75000E5D2E /* Main.storyboard in Resources */,
+				34EBE0C41F51AD82000E5D2E /* Assets.xcassets in Resources */,
+				34EBE0C01F51AD75000E5D2E /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,28 +238,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34D12E2D1F51A9110067D8D5 /* ViewController.swift in Sources */,
-				34D12E2B1F51A9110067D8D5 /* AppDelegate.swift in Sources */,
+				34EBE0CD1F51B692000E5D2E /* Store.swift in Sources */,
+				34EBE0B91F51AD60000E5D2E /* AppDelegate.swift in Sources */,
+				34EBE0C81F51AFE7000E5D2E /* UIColor+Random.swift in Sources */,
+				34EBE0CB1F51B657000E5D2E /* Configuration.swift in Sources */,
+				34EBE0C61F51AEFF000E5D2E /* MainViewController.swift in Sources */,
+				34EBE0CF1F51B9F1000E5D2E /* UIColor+Store.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		34D12E2E1F51A9110067D8D5 /* Main.storyboard */ = {
+		34EBE0BB1F51AD75000E5D2E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				34D12E2F1F51A9110067D8D5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		34D12E331F51A9110067D8D5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				34D12E341F51A9110067D8D5 /* Base */,
+				34EBE0BC1F51AD75000E5D2E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		34EBE0BD1F51AD75000E5D2E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				34EBE0BE1F51AD75000E5D2E /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -263,11 +368,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = X24R65DM8E;
-				INFOPLIST_FILE = MagicKeyboard/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MagicKeyboard/SupportingFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = impl.MagicKeyboard;
+				PRODUCT_BUNDLE_IDENTIFIER = impl.NearMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -276,11 +386,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = X24R65DM8E;
-				INFOPLIST_FILE = MagicKeyboard/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MagicKeyboard/SupportingFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = impl.MagicKeyboard;
+				PRODUCT_BUNDLE_IDENTIFIER = impl.NearMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -304,6 +418,7 @@
 				34D12E3B1F51A9110067D8D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
