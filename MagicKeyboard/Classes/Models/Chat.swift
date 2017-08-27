@@ -18,5 +18,4 @@ struct Chat {
         self.users = []
         self.id = 0
     }
-    
 }

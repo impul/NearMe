@@ -10,7 +10,7 @@ import MultipeerConnectivity
 import Foundation
 
 protocol ChatObservingProtocol {
-    func chatProviderListUpdated(_ chatsProviders:[ChatProviderProtocol])
+    func chatProviderListUpdated()
 }
 
 
@@ -19,11 +19,12 @@ protocol ChatProviderProtocol {
     var name:String { get }
     var chats:[Chat] { get }
     func request(_ updated:@escaping Update)
+    func closeConnection()
 }
 
 class ChatsManager {
     
-    private var chatProviders:[ChatProviderProtocol] = [NearChatProvider()]
+    var chatProviders:[ChatProviderProtocol] = [NearChatProvider()]
     
     var delegate:ChatObservingProtocol? {
         didSet{
@@ -31,12 +32,16 @@ class ChatsManager {
         }
     }
     
+    func closeConnections() {
+        chatProviders.forEach { $0.closeConnection() }
+    }
+    
     func requestChats() {
         chatProviders.forEach { (provider) in
             provider.request({ [weak self] (success) in
                 if !success { return }
                 guard let strongSelf = self else { return }
-                strongSelf.delegate?.chatProviderListUpdated(strongSelf.chatProviders)
+                strongSelf.delegate?.chatProviderListUpdated()
             })
         }
     }

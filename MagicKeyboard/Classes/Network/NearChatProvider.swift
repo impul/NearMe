@@ -12,11 +12,16 @@ import MultipeerConnectivity
 fileprivate struct Defaults {
     static var nameKey = "name"
     static var deviceInfo = [Defaults.nameKey:UIDevice.current.name]
+    static var providerName = "Devices near"
 }
 
 class NearChatProvider:NSObject {
     
-    var foundedChats:[Chat] = []
+    var foundedPears:[ProviderAdvertiser] = [] {
+        didSet{
+            complition?(true)
+        }
+    }
     var complition:Update?
     
     private let advertiser : MCNearbyServiceAdvertiser
@@ -61,8 +66,11 @@ extension NearChatProvider : MCNearbyServiceAdvertiserDelegate {
             complition?(false)
             return
         }
-        foundedChats = [Chat(title: name)]
-        complition?(true)
+        let exist = foundedPears.contains { $0.chat.title == name }
+        if !exist {
+            let chat = Chat(title: name)
+            foundedPears.append(ProviderAdvertiser(chat:chat,invitation:invitationHandler))
+        }
     }
     
 }
@@ -79,7 +87,10 @@ extension NearChatProvider : MCNearbyServiceBrowserDelegate {
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
-        complition?(true)
+        let pear = foundedPears.index { $0.chat.title == peerID.displayName }
+        guard pear != nil else { return }
+        foundedPears.remove(at: pear!)
+        complition?(false)
     }
     
 }
@@ -87,7 +98,7 @@ extension NearChatProvider : MCNearbyServiceBrowserDelegate {
 extension NearChatProvider : MCSessionDelegate {
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-        self.foundedChats[0].users = session.connectedPeers.map { return User(name:$0.displayName)}
+        self.foundedPears[0].chat.users = session.connectedPeers.map { return User(name:$0.displayName)}
         complition?(true)
     }
     
@@ -102,10 +113,14 @@ extension NearChatProvider : MCSessionDelegate {
 }
 
 extension NearChatProvider: ChatProviderProtocol {
-    var name: String { return "Devices near" }
-    var chats: [Chat] { return foundedChats }
+    var name: String { return Defaults.providerName }
+    var chats: [Chat] { return foundedPears.map { $0.chat } }
     
     func request(_ updated: @escaping Update) {
         complition = updated
+    }
+    
+    func closeConnection() {
+        foundedPears.forEach { $0.invitation(false,session) }
     }
 }

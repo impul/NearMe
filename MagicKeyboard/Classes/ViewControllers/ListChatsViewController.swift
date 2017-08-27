@@ -15,14 +15,7 @@ fileprivate struct Defaults {
 
 class ListChatsViewController: UITableViewController {
     
-    private var сhatsManager = ChatsManager()
-    var chatProviders:[ChatProviderProtocol] = [] {
-        didSet{
-            OperationQueue.main.addOperation {
-                self.tableView.reloadData()
-            }
-        }
-    }
+    fileprivate var сhatsManager = ChatsManager()
     
     //MARK: - Outlets
     
@@ -35,6 +28,11 @@ class ListChatsViewController: UITableViewController {
         updateColor()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: Defaults.tableViewCell )
         сhatsManager.delegate = self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        сhatsManager.closeConnections()
     }
     
     //MARK: - Actions
@@ -63,28 +61,42 @@ class ListChatsViewController: UITableViewController {
 extension ListChatsViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return chatProviders.count
+        return сhatsManager.chatProviders.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chatProviders[section].chats.count
+        return сhatsManager.chatProviders[section].chats.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let chat = chatProviders[indexPath.section].chats[indexPath.row]
+        let chat = сhatsManager.chatProviders[indexPath.section].chats[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: Defaults.tableViewCell, for: indexPath)
         cell.textLabel?.text = chat.title
         return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return chatProviders[section].name
+        return сhatsManager.chatProviders[section].name
+    }
+}
+
+//MARK: - UITableViewDelegate
+
+
+extension ListChatsViewController {
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
     
 }
 
+//MARK: - ChatObservingProtocol
+
 extension ListChatsViewController: ChatObservingProtocol {
-    func chatProviderListUpdated(_ chatsProviders:[ChatProviderProtocol]) {
-        self.chatProviders = chatsProviders
+    func chatProviderListUpdated() {
+        OperationQueue.main.addOperation {
+            self.tableView.reloadData()
+        }
     }
 }

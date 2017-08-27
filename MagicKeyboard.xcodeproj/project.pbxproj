@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3484EDF61F52CC8C005BED75 /* ProviderAdvertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3484EDF51F52CC8C005BED75 /* ProviderAdvertiser.swift */; };
 		34EBE0B91F51AD60000E5D2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0B81F51AD60000E5D2E /* AppDelegate.swift */; };
 		34EBE0C01F51AD75000E5D2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34EBE0BB1F51AD75000E5D2E /* LaunchScreen.storyboard */; };
 		34EBE0C11F51AD75000E5D2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34EBE0BD1F51AD75000E5D2E /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3484EDF51F52CC8C005BED75 /* ProviderAdvertiser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderAdvertiser.swift; sourceTree = "<group>"; };
 		34D12E271F51A9110067D8D5 /* MagicKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34EBE0B81F51AD60000E5D2E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Classes/AppDelegate.swift; sourceTree = "<group>"; };
 		34EBE0BC1F51AD75000E5D2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				34EBE0D31F51C3F2000E5D2E /* Chat.swift */,
 				34EBE0D51F51C421000E5D2E /* User.swift */,
+				3484EDF51F52CC8C005BED75 /* ProviderAdvertiser.swift */,
 			);
 			name = Models;
 			path = Classes/Models;
@@ -260,6 +263,7 @@
 			files = (
 				34EBE0DA1F51E856000E5D2E /* NearChatProvider.swift in Sources */,
 				34EBE0CD1F51B692000E5D2E /* Store.swift in Sources */,
+				3484EDF61F52CC8C005BED75 /* ProviderAdvertiser.swift in Sources */,
 				34EBE0B91F51AD60000E5D2E /* AppDelegate.swift in Sources */,
 				34EBE0D21F51C1CD000E5D2E /* ChatsManager.swift in Sources */,
 				34EBE0C81F51AFE7000E5D2E /* UIColor+Random.swift in Sources */,
