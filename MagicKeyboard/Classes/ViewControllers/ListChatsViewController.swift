@@ -23,8 +23,8 @@ class ListChatsViewController: UITableViewController {
     
     //MARK: - Lifecicle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         updateColor()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: Defaults.tableViewCell )
         сhatsManager.delegate = self
@@ -86,7 +86,11 @@ extension ListChatsViewController {
 extension ListChatsViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let currentChatsProvider = сhatsManager.chatProviders[indexPath.section]
+        currentChatsProvider.startConversation(currentChatsProvider.chats[indexPath.row].id)
+//        let controller = ConversationViewController.instatiate()
+//        controller.setup(messageProvider: currentChatsProvider, chat: currentChatsProvider.chats[indexPath.row])
+//        self.navigationController?.pushViewController(controller, animated: true)
     }
     
 }

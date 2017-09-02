@@ -9,24 +9,31 @@
 import MultipeerConnectivity
 import Foundation
 
+protocol ConversationDelegate {
+    func didReceiveMessage(_ newMessage:Message)
+}
+
 protocol ChatObservingProtocol {
     func chatProviderListUpdated()
 }
 
-
 typealias Update = (_ status:Bool) -> Void
+
 protocol ChatProviderProtocol {
-    var name:String { get }
-    var chats:[Chat] { get }
-    func request(_ updated:@escaping Update)
+    var name: String { get }
+    var chats: [Chat] { get }
+    var conversationDelegate:ConversationDelegate? { set get }
+    func request(_ updated: @escaping Update)
+    func startConversation(_ withChatId:Int)
     func closeConnection()
+    func sendMessage(_ text:String,id:Int)
 }
 
 class ChatsManager {
     
-    var chatProviders:[ChatProviderProtocol] = [NearChatProvider()]
+    var chatProviders: [ChatProviderProtocol] = [NearChatProvider()]
     
-    var delegate:ChatObservingProtocol? {
+    var delegate: ChatObservingProtocol? {
         didSet{
             requestChats()
         }

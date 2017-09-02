@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3484EDF61F52CC8C005BED75 /* ProviderAdvertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3484EDF51F52CC8C005BED75 /* ProviderAdvertiser.swift */; };
+		34AFB64E1F52ED9800343581 /* UIViewContoller+Instantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AFB64D1F52ED9800343581 /* UIViewContoller+Instantiate.swift */; };
+		34AFB6501F52EFAD00343581 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AFB64F1F52EFAD00343581 /* ConversationViewController.swift */; };
+		34AFB6521F52FB6100343581 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AFB6511F52FB6100343581 /* Message.swift */; };
 		34EBE0B91F51AD60000E5D2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0B81F51AD60000E5D2E /* AppDelegate.swift */; };
 		34EBE0C01F51AD75000E5D2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34EBE0BB1F51AD75000E5D2E /* LaunchScreen.storyboard */; };
 		34EBE0C11F51AD75000E5D2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34EBE0BD1F51AD75000E5D2E /* Main.storyboard */; };
@@ -22,10 +25,15 @@
 		34EBE0D41F51C3F2000E5D2E /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0D31F51C3F2000E5D2E /* Chat.swift */; };
 		34EBE0D61F51C421000E5D2E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0D51F51C421000E5D2E /* User.swift */; };
 		34EBE0DA1F51E856000E5D2E /* NearChatProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EBE0D91F51E856000E5D2E /* NearChatProvider.swift */; };
+		446A5547B5A681618CEC1662 /* Pods_MagicKeyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F0254C0CA4DDC92CEA157 /* Pods_MagicKeyboard.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		33B057167F560882008F0387 /* Pods-MagicKeyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicKeyboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-MagicKeyboard/Pods-MagicKeyboard.release.xcconfig"; sourceTree = "<group>"; };
 		3484EDF51F52CC8C005BED75 /* ProviderAdvertiser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderAdvertiser.swift; sourceTree = "<group>"; };
+		34AFB64D1F52ED9800343581 /* UIViewContoller+Instantiate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewContoller+Instantiate.swift"; sourceTree = "<group>"; };
+		34AFB64F1F52EFAD00343581 /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		34AFB6511F52FB6100343581 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		34D12E271F51A9110067D8D5 /* MagicKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34EBE0B81F51AD60000E5D2E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Classes/AppDelegate.swift; sourceTree = "<group>"; };
 		34EBE0BC1F51AD75000E5D2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,6 +49,8 @@
 		34EBE0D31F51C3F2000E5D2E /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		34EBE0D51F51C421000E5D2E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		34EBE0D91F51E856000E5D2E /* NearChatProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearChatProvider.swift; sourceTree = "<group>"; };
+		65054CE301B15751ADFBED3B /* Pods-MagicKeyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicKeyboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MagicKeyboard/Pods-MagicKeyboard.debug.xcconfig"; sourceTree = "<group>"; };
+		998F0254C0CA4DDC92CEA157 /* Pods_MagicKeyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicKeyboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,17 +58,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				446A5547B5A681618CEC1662 /* Pods_MagicKeyboard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31C89E3D34F35668C0319883 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				998F0254C0CA4DDC92CEA157 /* Pods_MagicKeyboard.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		34D12E1E1F51A9110067D8D5 = {
 			isa = PBXGroup;
 			children = (
 				34D12E291F51A9110067D8D5 /* MagicKeyboard */,
 				34D12E281F51A9110067D8D5 /* Products */,
+				954DD586525989AEB2F05F10 /* Pods */,
+				31C89E3D34F35668C0319883 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +148,7 @@
 				34EBE0D31F51C3F2000E5D2E /* Chat.swift */,
 				34EBE0D51F51C421000E5D2E /* User.swift */,
 				3484EDF51F52CC8C005BED75 /* ProviderAdvertiser.swift */,
+				34AFB6511F52FB6100343581 /* Message.swift */,
 			);
 			name = Models;
 			path = Classes/Models;
@@ -137,6 +159,7 @@
 			children = (
 				34EBE0C71F51AFE7000E5D2E /* UIColor+Random.swift */,
 				34EBE0CE1F51B9F1000E5D2E /* UIColor+Store.swift */,
+				34AFB64D1F52ED9800343581 /* UIViewContoller+Instantiate.swift */,
 			);
 			name = Extentions;
 			path = Classes/Extentions;
@@ -154,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				34EBE0C51F51AEFF000E5D2E /* ListChatsViewController.swift */,
+				34AFB64F1F52EFAD00343581 /* ConversationViewController.swift */,
 			);
 			name = ViewControllers;
 			path = Classes/ViewControllers;
@@ -186,6 +210,15 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
+		954DD586525989AEB2F05F10 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				65054CE301B15751ADFBED3B /* Pods-MagicKeyboard.debug.xcconfig */,
+				33B057167F560882008F0387 /* Pods-MagicKeyboard.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -193,9 +226,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34D12E391F51A9110067D8D5 /* Build configuration list for PBXNativeTarget "MagicKeyboard" */;
 			buildPhases = (
+				A0233529B9E887FB64C46C0A /* [CP] Check Pods Manifest.lock */,
 				34D12E231F51A9110067D8D5 /* Sources */,
 				34D12E241F51A9110067D8D5 /* Frameworks */,
 				34D12E251F51A9110067D8D5 /* Resources */,
+				8142A991CC3766693C37A485 /* [CP] Embed Pods Frameworks */,
+				817FE7035237FF8CD68F5A95 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -256,6 +292,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8142A991CC3766693C37A485 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MagicKeyboard/Pods-MagicKeyboard-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MagicKeyboard/Pods-MagicKeyboard-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		817FE7035237FF8CD68F5A95 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MagicKeyboard/Pods-MagicKeyboard-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0233529B9E887FB64C46C0A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MagicKeyboard-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		34D12E231F51A9110067D8D5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -264,14 +354,17 @@
 				34EBE0DA1F51E856000E5D2E /* NearChatProvider.swift in Sources */,
 				34EBE0CD1F51B692000E5D2E /* Store.swift in Sources */,
 				3484EDF61F52CC8C005BED75 /* ProviderAdvertiser.swift in Sources */,
+				34AFB6501F52EFAD00343581 /* ConversationViewController.swift in Sources */,
 				34EBE0B91F51AD60000E5D2E /* AppDelegate.swift in Sources */,
 				34EBE0D21F51C1CD000E5D2E /* ChatsManager.swift in Sources */,
 				34EBE0C81F51AFE7000E5D2E /* UIColor+Random.swift in Sources */,
+				34AFB64E1F52ED9800343581 /* UIViewContoller+Instantiate.swift in Sources */,
 				34EBE0CB1F51B657000E5D2E /* Configuration.swift in Sources */,
 				34EBE0D61F51C421000E5D2E /* User.swift in Sources */,
 				34EBE0D41F51C3F2000E5D2E /* Chat.swift in Sources */,
 				34EBE0C61F51AEFF000E5D2E /* ListChatsViewController.swift in Sources */,
 				34EBE0CF1F51B9F1000E5D2E /* UIColor+Store.swift in Sources */,
+				34AFB6521F52FB6100343581 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,13 +487,14 @@
 		};
 		34D12E3A1F51A9110067D8D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65054CE301B15751ADFBED3B /* Pods-MagicKeyboard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = X24R65DM8E;
 				INFOPLIST_FILE = "$(SRCROOT)/MagicKeyboard/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = impl.NearMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -412,13 +506,14 @@
 		};
 		34D12E3B1F51A9110067D8D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33B057167F560882008F0387 /* Pods-MagicKeyboard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = X24R65DM8E;
 				INFOPLIST_FILE = "$(SRCROOT)/MagicKeyboard/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = impl.NearMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";

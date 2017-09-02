@@ -10,4 +10,6 @@ import UIKit
 
 struct Configuratons {
     static var AppIdentifire = "magickeyboard"
+    static var StoryboardName = "Main"
+    static var DefaultFontName = "HelveticaNeue"
 }

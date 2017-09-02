@@ -59,7 +59,60 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bu9-2b-ErS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="102" y="152"/>
+            <point key="canvasLocation" x="-209" y="152"/>
+        </scene>
+        <!--Conversation View Controller-->
+        <scene sceneID="tSx-kv-GxG">
+            <objects>
+                <viewController storyboardIdentifier="ConversationViewController" id="01l-rV-8oa" customClass="ConversationViewController" customModule="MagicKeyboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Y2-AJ-YJc"/>
+                        <viewControllerLayoutGuide type="bottom" id="GcF-Uj-Cc8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aD0-04-Ka8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Jw-be-2ZK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="427"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vgo-XZ-NhE">
+                                <rect key="frame" x="0.0" y="427" width="375" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="V2V-WY-FK8"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="send"/>
+                                <connections>
+                                    <outlet property="delegate" destination="01l-rV-8oa" id="48U-l1-w6u"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="5Jw-be-2ZK" secondAttribute="trailing" id="9n0-m7-iY0"/>
+                            <constraint firstItem="Vgo-XZ-NhE" firstAttribute="leading" secondItem="aD0-04-Ka8" secondAttribute="leading" id="MIn-qL-5b9"/>
+                            <constraint firstItem="Vgo-XZ-NhE" firstAttribute="top" secondItem="5Jw-be-2ZK" secondAttribute="bottom" id="UV3-WW-Bgw"/>
+                            <constraint firstItem="5Jw-be-2ZK" firstAttribute="leading" secondItem="aD0-04-Ka8" secondAttribute="leading" id="YQX-v3-5rj"/>
+                            <constraint firstAttribute="trailing" secondItem="Vgo-XZ-NhE" secondAttribute="trailing" id="bC6-Zr-fkI"/>
+                            <constraint firstItem="5Jw-be-2ZK" firstAttribute="top" secondItem="aD0-04-Ka8" secondAttribute="top" id="eDd-C1-uPQ"/>
+                            <constraint firstItem="GcF-Uj-Cc8" firstAttribute="top" secondItem="Vgo-XZ-NhE" secondAttribute="bottom" constant="200" id="nnM-xQ-3Fc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="inputTextField" destination="Vgo-XZ-NhE" id="fRX-yz-VWx"/>
+                        <outlet property="keyboardHeaightConstraint" destination="nnM-xQ-3Fc" id="lK4-M1-01U"/>
+                        <outlet property="outputTextView" destination="5Jw-be-2ZK" id="2aQ-9r-hy4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q7y-ev-yyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="808.79999999999995" y="151.57421289355324"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jvP-X3-T58">

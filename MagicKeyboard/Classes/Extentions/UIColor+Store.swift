@@ -25,4 +25,22 @@ extension UserDefaults {
         }
         set(colorData, forKey: key)
     }
+    
+}
+
+extension UInt32 {
+    
+    var RGBColor: UIColor {
+        return UIColor(red: CGFloat((self >> 16) & 0xFF), green: CGFloat((self >> 8) & 0xFF), blue: CGFloat(self & 0xFF), alpha: 1.0)
+    }
+    
+}
+
+extension UIColor {
+    
+    var colorHEX:UInt32 {
+        guard let components = self.cgColor.components else { return 0 }
+        return UInt32(components[0] * 255.0) << 16 + UInt32(components[1] * 255.0) << 8 + UInt32(components[2] * 255.0)
+    }
+    
 }
