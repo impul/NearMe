@@ -11,7 +11,8 @@ import MultipeerConnectivity
 
 fileprivate struct Defaults {
     static var nameKey = "name"
-    static var deviceInfo = [Defaults.nameKey:UIDevice.current.name]
+    static var idKey = "id"
+    static var deviceInfo = [Defaults.nameKey:UIDevice.current.name,Defaults.idKey:UIDevice.current.identifierForVendor?.uuidString ?? ""]
     static var providerName = "Devices near"
 }
 
@@ -19,10 +20,11 @@ class NearChatProvider:NSObject {
     
     var foundedPears:[ProviderAdvertiser] = [] {
         didSet{
-            complition?(true)
+            complition?()
         }
     }
     var complition:Update?
+    var connectingStatus:((_ newStatus:ConversationStatus) -> Void)?
     
     private let advertiser : MCNearbyServiceAdvertiser
     private let browser : MCNearbyServiceBrowser
@@ -52,7 +54,7 @@ class NearChatProvider:NSObject {
 extension NearChatProvider : MCNearbyServiceAdvertiserDelegate {
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
-        complition?(false)
+        complition?()
     }
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void){
@@ -63,13 +65,14 @@ extension NearChatProvider : MCNearbyServiceAdvertiserDelegate {
         }
         guard context != nil,
             let info = NSKeyedUnarchiver.unarchiveObject(with: context!) as? [String : String],
-            let name = info[Defaults.nameKey] else{
-            complition?(false)
+            let name = info[Defaults.nameKey],
+            let id = info[Defaults.idKey] else{
+            complition?()
             return
         }
         let exist = foundedPears.contains { $0.chat.title == name }
         if !exist {
-            let chat = Chat(title: name)
+            let chat = Chat(title: name,pearId:id)
             foundedPears.append(ProviderAdvertiser(chat:chat,invitation:invitationHandler))
         }
     }
@@ -79,7 +82,7 @@ extension NearChatProvider : MCNearbyServiceAdvertiserDelegate {
 extension NearChatProvider : MCNearbyServiceBrowserDelegate {
     
     func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
-        complition?(false)
+        complition?()
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
@@ -92,7 +95,7 @@ extension NearChatProvider : MCNearbyServiceBrowserDelegate {
         let pear = foundedPears.index { $0.chat.title == peerID.displayName }
         guard pear != nil else { return }
         foundedPears.remove(at: pear!)
-        complition?(false)
+        complition?()
     }
     
 }
@@ -100,14 +103,20 @@ extension NearChatProvider : MCNearbyServiceBrowserDelegate {
 extension NearChatProvider : MCSessionDelegate {
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-        self.foundedPears[0].chat.users = session.connectedPeers.map { return User(name:$0.displayName)}
-        complition?(true)
-        print("New state is :\(state.hashValue)")
+        complition?()
+        guard let newStatus = ConversationStatus(rawValue: state.rawValue) else {
+            connectingStatus?(.notConnected)
+            return
+        }
+        connectingStatus?(newStatus)
+        var current = self.foundedPears.first { $0.chat.title == peerID.displayName }
+        guard current != nil else { return }
+        current?.chat.users = session.connectedPeers.map { return User(name:$0.displayName)}
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         guard let message = try? JSONDecoder().decode(Message.self, from: data) else { return }
-       print(message.message)
+        ChatsManager.sharedManager.messageDelegate?.didReceiveMessage(message)
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {}
@@ -117,10 +126,7 @@ extension NearChatProvider : MCSessionDelegate {
 }
 
 extension NearChatProvider: ChatProviderProtocol {
-    var conversationDelegate: ConversationDelegate? {
-        get { return self.conversationDelegate }
-        set { self.conversationDelegate = newValue }
-    }
+    
 
     var name: String { return Defaults.providerName }
     var chats: [Chat] { return foundedPears.map { $0.chat } }
@@ -132,8 +138,8 @@ extension NearChatProvider: ChatProviderProtocol {
         foundedPears.forEach { $0.invitation(false,session) }
     }
     
-    func startConversation(_ withChatId: Int) {
-        print("Start converstation")
+    func startConversation(_ withChatId:String, status:@escaping (_ newStatus:ConversationStatus) -> Void) {
+        connectingStatus = status
         let chat = foundedPears.first { $0.chat.id == withChatId }
         chat?.invitation(true,session)
     }

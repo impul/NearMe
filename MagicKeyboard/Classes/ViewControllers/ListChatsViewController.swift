@@ -8,14 +8,13 @@
 
 import UIKit
 import MultipeerConnectivity
+import SVProgressHUD
 
 fileprivate struct Defaults {
     static var tableViewCell = "chatCell"
 }
 
 class ListChatsViewController: UITableViewController {
-    
-    fileprivate var сhatsManager = ChatsManager()
     
     //MARK: - Outlets
     
@@ -27,12 +26,12 @@ class ListChatsViewController: UITableViewController {
         super.viewWillAppear(animated)
         updateColor()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: Defaults.tableViewCell )
-        сhatsManager.delegate = self
+        ChatsManager.sharedManager.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        сhatsManager.closeConnections()
+        ChatsManager.sharedManager.closeConnections()
     }
     
     //MARK: - Actions
@@ -61,22 +60,22 @@ class ListChatsViewController: UITableViewController {
 extension ListChatsViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return сhatsManager.chatProviders.count
+        return ChatsManager.sharedManager.chatProviders.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return сhatsManager.chatProviders[section].chats.count
+        return ChatsManager.sharedManager.chatProviders[section].chats.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let chat = сhatsManager.chatProviders[indexPath.section].chats[indexPath.row]
+        let chat = ChatsManager.sharedManager.chatProviders[indexPath.section].chats[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: Defaults.tableViewCell, for: indexPath)
         cell.textLabel?.text = chat.title
         return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return сhatsManager.chatProviders[section].name
+        return ChatsManager.sharedManager.chatProviders[section].name
     }
 }
 
@@ -86,21 +85,42 @@ extension ListChatsViewController {
 extension ListChatsViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let currentChatsProvider = сhatsManager.chatProviders[indexPath.section]
-        currentChatsProvider.startConversation(currentChatsProvider.chats[indexPath.row].id)
-//        let controller = ConversationViewController.instatiate()
-//        controller.setup(messageProvider: currentChatsProvider, chat: currentChatsProvider.chats[indexPath.row])
-//        self.navigationController?.pushViewController(controller, animated: true)
+        let currentChatsProvider = ChatsManager.sharedManager.chatProviders[indexPath.section]
+        let currentChat = currentChatsProvider.chats[indexPath.row]
+        if currentChat.id == ChatsManager.sharedManager.currentChatId {
+            conversationStarted(onMessageProvider: currentChatsProvider, chat: currentChat)
+            return
+        }
+        ChatsManager.sharedManager.startChat(inChatProvider: currentChatsProvider, at: currentChat)
     }
-    
+
 }
 
 //MARK: - ChatObservingProtocol
 
 extension ListChatsViewController: ChatObservingProtocol {
+    
     func chatProviderListUpdated() {
         OperationQueue.main.addOperation {
             self.tableView.reloadData()
         }
     }
+    
+    func conversationStarted(onMessageProvider: ChatProviderProtocol,chat: Chat) {
+        OperationQueue.main.addOperation {
+            let controller = ConversationViewController.instatiate()
+            controller.setup(messageProvider: onMessageProvider, chat: chat)
+            self.navigationController?.pushViewController(controller, animated: true)
+            SVProgressHUD.dismiss()
+        }
+    }
+    
+    func conversationConnecting() {
+        SVProgressHUD.show(withStatus: "Connecting...")
+    }
+    
+    func conversetionFailed(withInfo: String) {
+        SVProgressHUD.showError(withStatus: withInfo)
+    }
+    
 }

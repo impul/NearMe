@@ -31,7 +31,10 @@ extension UserDefaults {
 extension UInt32 {
     
     var RGBColor: UIColor {
-        return UIColor(red: CGFloat((self >> 16) & 0xFF), green: CGFloat((self >> 8) & 0xFF), blue: CGFloat(self & 0xFF), alpha: 1.0)
+        let red = CGFloat((self >> 16) & 0xFF) / 255.0
+        let green = CGFloat((self >> 8) & 0xFF) / 255.0
+        let blue = CGFloat(self & 0xFF) / 255.0
+        return UIColor(red:red , green:green , blue:blue , alpha: 1.0)
     }
     
 }

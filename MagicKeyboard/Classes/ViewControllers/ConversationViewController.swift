@@ -32,6 +32,7 @@ class ConversationViewController: UIViewController {
     func setup(messageProvider:ChatProviderProtocol,chat:Chat) {
         self.messageProvider = messageProvider
         self.currentChat = chat
+        ChatsManager.sharedManager.messageDelegate = self
     }
     
     
@@ -41,8 +42,6 @@ class ConversationViewController: UIViewController {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         self.inputTextField.becomeFirstResponder()
-        guard let id = currentChat?.id else { return }
-        messageProvider?.startConversation(id)
     }
     
     //MARK: - Privte
@@ -60,25 +59,31 @@ extension ConversationViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         messageProvider?.sendMessage(string,id: 0)
+        if string == "\n" { textField.text = "" }
         return true
     }
-    
 }
 
 extension ConversationViewController: ConversationDelegate {
     
     func didReceiveMessage(_ newMessage:Message) {
-        if newMessage.messageId == lastMessage.messageId {
-            self.outputTextView.text.append(newMessage.message)
-        }
         lastMessage = newMessage
-        let attributes = [NSForegroundColorAttributeName:newMessage.color,
-                          NSFontAttributeName:Defaults.textFont] as? [String : Any]
+        let color = newMessage.color.RGBColor
+        let attributes = [NSForegroundColorAttributeName:color,
+                          NSFontAttributeName:Defaults.textFont] as [String : Any]
         let attributedText = NSAttributedString(string: newMessage.message, attributes: attributes)
-        guard let oldText = outputTextView.attributedText as? NSMutableAttributedString else {
+        guard let oldText = outputTextView.attributedText else {
+            updateTextView(attributedText)
             return
         }
-        oldText.append(attributedText)
-        outputTextView.attributedText = oldText
+        let newString = NSMutableAttributedString(attributedString: oldText)
+        newString.append(attributedText)
+        updateTextView(newString)
+    }
+    
+    func updateTextView(_ text:NSAttributedString) {
+        OperationQueue.main.addOperation {
+            self.outputTextView.attributedText = text
+        }
     }
 }

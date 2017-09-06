@@ -11,11 +11,11 @@ import Foundation
 struct Chat {
     var title:String
     var users:[User]
-    var id:Int
+    var id:String
     
-    init(title:String) {
+    init(title:String,pearId:String) {
         self.title = title
         self.users = []
-        self.id = 0
+        self.id = pearId
     }
 }

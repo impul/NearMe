@@ -15,24 +15,37 @@ protocol ConversationDelegate {
 
 protocol ChatObservingProtocol {
     func chatProviderListUpdated()
+    func conversationStarted(onMessageProvider:ChatProviderProtocol,chat:Chat)
+    func conversetionFailed(withInfo:String)
+    func conversationConnecting()
 }
 
-typealias Update = (_ status:Bool) -> Void
+enum ConversationStatus:Int {
+    case notConnected
+    case connecting
+    case connected
+}
+
+typealias Update = () -> Void
 
 protocol ChatProviderProtocol {
     var name: String { get }
     var chats: [Chat] { get }
-    var conversationDelegate:ConversationDelegate? { set get }
     func request(_ updated: @escaping Update)
-    func startConversation(_ withChatId:Int)
+    func startConversation(_ withChatId:String
+        , status:@escaping(_ newStatus:ConversationStatus) -> Void)
     func closeConnection()
     func sendMessage(_ text:String,id:Int)
 }
 
 class ChatsManager {
     
+    static var sharedManager = ChatsManager()
+    
     var chatProviders: [ChatProviderProtocol] = [NearChatProvider()]
     
+    var currentChatId:String?
+    var messageDelegate:ConversationDelegate?
     var delegate: ChatObservingProtocol? {
         didSet{
             requestChats()
@@ -45,11 +58,24 @@ class ChatsManager {
     
     func requestChats() {
         chatProviders.forEach { (provider) in
-            provider.request({ [weak self] (success) in
-                if !success { return }
+            provider.request({ [weak self] in
                 guard let strongSelf = self else { return }
                 strongSelf.delegate?.chatProviderListUpdated()
             })
+        }
+    }
+    
+    func startChat(inChatProvider chatProvider:ChatProviderProtocol, at chat:Chat) {
+        chatProvider.startConversation(chat.id) { (status) in
+            switch status {
+            case .notConnected:
+                self.delegate?.conversetionFailed(withInfo: "Not connected")
+            case .connecting:
+                self.delegate?.conversationConnecting()
+            case .connected:
+                self.currentChatId = chat.id
+                self.delegate?.conversationStarted(onMessageProvider: chatProvider, chat: chat)
+            }
         }
     }
     
