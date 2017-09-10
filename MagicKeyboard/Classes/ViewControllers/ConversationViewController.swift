@@ -68,6 +68,10 @@ extension ConversationViewController: ConversationDelegate {
     
     func didReceiveMessage(_ newMessage:Message) {
         lastMessage = newMessage
+        guard newMessage.message != "" else {
+            dropLast()
+            return
+        }
         let color = newMessage.color.RGBColor
         let attributes = [NSForegroundColorAttributeName:color,
                           NSFontAttributeName:Defaults.textFont] as [String : Any]
@@ -84,6 +88,12 @@ extension ConversationViewController: ConversationDelegate {
     func updateTextView(_ text:NSAttributedString) {
         OperationQueue.main.addOperation {
             self.outputTextView.attributedText = text
+        }
+    }
+    
+    func dropLast() {
+        OperationQueue.main.addOperation {
+            _ = self.outputTextView.text.removeLast()
         }
     }
 }
